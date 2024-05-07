@@ -1,0 +1,15 @@
+config:
+  target: "http://localhost:3000/sql"
+  phases:
+    - duration: 10
+      arrivalRate: 9999
+  defaults:
+    headers:
+      Content-Type: "application/json"
+
+scenarios:
+  - flow:
+      - post:
+          url: "/message"
+          json:
+            content: "Test message"
