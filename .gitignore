@@ -4,6 +4,7 @@
 **/build/
 **/.vscode/
 **/data/
+**/.clinic/
 
 # Logs
 logs

@@ -1,15 +1,17 @@
 config:
   target: "http://localhost:3000/nosql"
   phases:
-    - duration: 10
-      arrivalRate: 9999
+    - duration: 300
+      arrivalRate: 1000
   defaults:
     headers:
       Content-Type: "application/json"
-
+  processor: "./generateNames.js"
 scenarios:
   - flow:
       - post:
+          beforeRequest: "generateName"
           url: "/message"
           json:
             content: "Test message"
+            name: "{{name}}"
